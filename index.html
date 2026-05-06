@@ -190,8 +190,8 @@
             border: 1px solid rgba(255,255,255,.08);
         }
         .work-card.tall {
-            grid-column: span 4;
-            min-height: 380px;
+            grid-column: span 6;
+            min-height: 340px;
         }
         .work-card.wide {
             grid-column: span 6;
@@ -245,11 +245,16 @@
             min-height: 260px;
             padding: 34px;
             display: grid;
-            grid-template-columns: 260px 1fr;
+            grid-template-columns: 180px 1fr;
             gap: 30px;
             align-items: center;
         }
-        .podcast-card img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 22px; }
+        .podcast-card img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 18px;
+        }
         .podcast-card span { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 900; color: var(--accent); }
         .podcast-card h3 { font-size: clamp(34px, 4vw, 56px); line-height: .95; letter-spacing: -.06em; margin: 10px 0; }
         .podcast-card p { color: #5d554b; max-width: 720px; }
@@ -371,12 +376,12 @@
             </div>
             <div class="brand">lareina<br>wu</div>
             <nav class="side-nav">
-                <a href="#about">about</a>
-                <a href="#video">production</a>
-                <a href="#article">articles</a>
-                <a href="#design">design</a>
-                <a href="#photography">photography</a>
-                <a href="mailto:hello@lareinawu.com">contact</a>
+                <a href="#about">About</a>
+                <a href="#video">Production</a>
+                <a href="#article">Articles</a>
+                <a href="#design">Design</a>
+                <a href="#Photography">Photography</a>
+                <a href="mailto:hello@lareinawu.com">Contact</a>
             </nav>
         </div>
         <div class="sidebar-note">Multimedia journalist<br>Producer · Editor · Host</div>
@@ -401,7 +406,7 @@
 
         <section class="section section-dark" id="video">
             <div class="section-header">
-                <h2 class="section-title">selected production</h2>
+                <h2 class="section-title">Selected Production</h2>
                 <p class="section-kicker">Long-form interviews, short-form digital storytelling, and podcast production work.</p>
             </div>
 
@@ -420,7 +425,7 @@
                     </div>
                 </a>
 
-                <a href="https://peoplesdaily.pdnews.cn/pd-cafe/er/30050394825" target="_blank" class="work-card tall">
+                <a href="https://peoplesdaily.pdnews.cn/pd-cafe/er/30050394825" target="_blank" class="work-card">
                     <img src="assets/images/v_long1.jpg" class="v-poster" alt="Jake Miller PD Cafe">
                     <video muted loop playsinline><source src="assets/videos/jake_miller.mp4"></video>
                     <div class="work-info">
@@ -469,7 +474,10 @@
                 </a>
 
                 <div class="podcast-card">
-                    <img src="assets/images/podcast-cover.jpg" alt="UNCURATED podcast cover">
+                    <div>
+                        <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#d94b2b; font-weight:800; margin-bottom:12px;">Podcast</div>
+                        <img src="assets/images/podcast-cover.jpg" alt="UNCURATED podcast cover">
+                    </div>
                     <div>
                         <span>Podcast / Co-Producer</span>
                         <h3>UNCURATED</h3>
@@ -482,7 +490,7 @@
 
         <section class="section section-cream" id="article">
             <div class="section-header">
-                <h2 class="section-title">selected<br>articles</h2>
+                <h2 class="section-title">Selected<br>Articles</h2>
                 <p class="section-kicker">Feature writing, digital reporting, and interactive storytelling across culture, society, and media.</p>
             </div>
             <div class="article-grid">
@@ -531,7 +539,7 @@
 
         <section class="section section-dark" id="design">
             <div class="section-header">
-                <h2 class="section-title">graphic design</h2>
+                <h2 class="section-title">Graphic Design</h2>
                 <p class="section-kicker">Selected visual communication and social media design work.</p>
             </div>
             <div class="gd-grid">
@@ -610,4 +618,3 @@
     </script>
 </body>
 </html>
-
