@@ -182,14 +182,17 @@
         }
         .work-card {
             grid-column: span 6;
-            min-height: 420px;
+            min-height: 340px;
             border-radius: 30px;
             overflow: hidden;
             background: #222;
             position: relative;
             border: 1px solid rgba(255,255,255,.08);
         }
-        .work-card.tall { grid-column: span 4; min-height: 520px; }
+        .work-card.tall {
+            grid-column: span 4;
+            min-height: 380px;
+        }
         .work-card.wide { grid-column: span 8; }
         .work-card img.v-poster,
         .work-card video {
@@ -220,8 +223,17 @@
             text-transform: uppercase;
             color: #f4e7d5;
         }
-        .work-info h3 { font-size: 26px; line-height: 1; letter-spacing: -.045em; margin-bottom: 9px; }
-        .work-info p { font-size: 14px; color: rgba(255,255,255,.76); max-width: 520px; }
+        .work-info h3 {
+            font-size: 20px;
+            line-height: 1.1;
+            letter-spacing: -.035em;
+            margin-bottom: 8px;
+        }
+        .work-info p {
+            font-size: 13px;
+            color: rgba(255,255,255,.72);
+            max-width: 460px;
+        }
 
         .podcast-card {
             grid-column: span 12;
@@ -350,29 +362,30 @@
     <aside class="sidebar">
         <div>
             <div class="socials">
-                <a href="https://www.linkedin.com/in/lareinawu111/" aria-label="LinkedIn">in</a>
-                <a href="https://www.instagram.com/lareinaw/" aria-label="Instagram">ig</a>
+                <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">in</a>
+                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">ig</a>
+                <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">yt</a>
                 <a href="assets/CV.pdf" target="_blank" aria-label="CV">CV</a>
             </div>
-            <div class="brand"> Lareina<br> Wu</div>
+            <div class="brand">lareina<br>wu</div>
             <nav class="side-nav">
-                <a href="#about">About</a>
-                <a href="#video">Production</a>
-                <a href="#article">Articles</a>
-                <a href="#design">Design</a>
-                <a href="#photography">Photography</a>
-                <a href="mailto:Lareinawu111@gmail.com">contact</a>
+                <a href="#about">about</a>
+                <a href="#video">production</a>
+                <a href="#article">articles</a>
+                <a href="#design">design</a>
+                <a href="#photography">photography</a>
+                <a href="mailto:hello@lareinawu.com">contact</a>
             </nav>
         </div>
-        <div class="sidebar-note">Multimedia journalist<br>Producer · Editor </div>
+        <div class="sidebar-note">Multimedia journalist<br>Producer · Editor · Host</div>
     </aside>
 
     <main>
         <section class="hero" id="about">
             <div class="eyebrow">Portfolio / Journalism / Video Production</div>
-            <h1> Multimedia Producer & Communication Specialist </h1>
+            <h1>a bilingual journalist + multimedia storyteller</h1>
             <p>
-                I’m Lareina Wu, a multimedia producer and communication spcialist. I specialize in video production, feature reporting, and visual storytelling.
+                I’m Lareina Wu, an International Journalism graduate from the University of Melbourne. I work across Mandarin and English news production, feature reporting, video editing, social media storytelling, podcasting, and global media communication.
             </p>
             <div class="hero-actions">
                 <a href="assets/CV.pdf" class="btn btn-primary" target="_blank">View CV</a>
@@ -386,8 +399,12 @@
 
         <section class="section section-dark" id="video">
             <div class="section-header">
-                <h2 class="section-title">Selected<br>Production</h2>
-                <p class="section-kicker">A curated view of long-form interviews, short-form explainers, and podcast production work. Hover on video cards to preview clips.</p>
+                <h2 class="section-title">selected production</h2>
+                <p class="section-kicker">Long-form interviews, short-form digital storytelling, and podcast production work.</p>
+            </div>
+
+            <div style="margin-bottom: 26px;">
+                <h3 style="font-size:18px; letter-spacing:-0.03em; margin-bottom:18px; color:#f4e7d5; font-weight:700;">Long-form</h3>
             </div>
 
             <div class="work-grid">
@@ -410,6 +427,14 @@
                         <p>Exploring how social media breaks cultural barriers and supports global music collaboration.</p>
                     </div>
                 </a>
+
+                </div>
+
+            <div style="margin:70px 0 26px;">
+                <h3 style="font-size:18px; letter-spacing:-0.03em; margin-bottom:18px; color:#f4e7d5; font-weight:700;">Short-form</h3>
+            </div>
+
+            <div class="work-grid">
 
                 <a href="https://peoplesdaily.pdnews.cn/trending/er/30050524191" target="_blank" class="work-card tall">
                     <img src="assets/images/v_s3.jpg" class="v-poster" alt="Seoul Robot AI Museum">
@@ -504,7 +529,7 @@
 
         <section class="section section-dark" id="design">
             <div class="section-header">
-                <h2 class="section-title">Graphic Design</h2>
+                <h2 class="section-title">graphic design</h2>
                 <p class="section-kicker">Selected visual communication and social media design work.</p>
             </div>
             <div class="gd-grid">
@@ -523,10 +548,9 @@
             </div>
         </section>
 
-
         <section class="section section-white" id="photography">
             <div class="section-header">
-                <h2 class="section-title">Photography</h2>
+                <h2 class="section-title">photography</h2>
                 <p class="section-kicker">A visual archive of travel, people, culture, and everyday observation.</p>
             </div>
             <div class="photo-grid-thumb">
@@ -554,7 +578,7 @@
 
     <footer>
         <span>&copy; 2026 Lareina Wu</span>
-        <span>Multimedia Journalist · Producer · Editor </span>
+        <span>Multimedia Journalist · Producer · Editor · Host</span>
     </footer>
 
     <script>
