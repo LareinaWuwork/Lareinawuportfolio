@@ -11,33 +11,33 @@
 
     :root {
       --ink: #151515;
-      --muted: #666;
-      --soft: #f5f5f3;
-      --line: #dfdfdc;
-      --accent: #b23a22;
-      --max: 1440px;
+      --muted: #6f6f6f;
+      --soft: #f7f7f5;
+      --line: #e2e2df;
+      --accent: #a63b28;
+      --max: 1180px;
     }
 
     body {
       font-family: Inter, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
       background: #fff;
       color: var(--ink);
-      line-height: 1.45;
+      line-height: 1.48;
       -webkit-font-smoothing: antialiased;
     }
 
     a { color: inherit; text-decoration: none; }
     img, video { display: block; max-width: 100%; }
 
-    .page {
-      width: min(var(--max), calc(100% - 72px));
+    .page,
+    .nav {
+      width: min(var(--max), calc(100% - 56px));
       margin: 0 auto;
     }
 
-    /* Top bar */
     header {
       border-bottom: 1px solid var(--line);
-      background: rgba(255,255,255,.92);
+      background: rgba(255,255,255,.94);
       backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
@@ -45,19 +45,17 @@
     }
 
     .nav {
-      width: min(var(--max), calc(100% - 72px));
-      margin: 0 auto;
-      height: 72px;
+      min-height: 62px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 28px;
+      gap: 26px;
     }
 
     .logo {
-      font-size: 21px;
-      font-weight: 900;
-      letter-spacing: -.04em;
+      font-size: 17px;
+      font-weight: 850;
+      letter-spacing: -.03em;
       text-transform: uppercase;
       white-space: nowrap;
     }
@@ -65,92 +63,102 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 24px;
-      color: #444;
-      font-size: 14px;
-      font-weight: 700;
+      gap: 20px;
+      color: #555;
+      font-size: 13px;
+      font-weight: 650;
     }
 
     .nav-links a:hover { color: var(--accent); }
 
-    /* Intro */
     .intro {
-      padding: 72px 0 46px;
+      padding: 54px 0 38px;
       border-bottom: 1px solid var(--line);
     }
 
-    .intro-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 60px;
-      align-items: end;
-    }
-
     .kicker {
-      font-size: 12px;
-      letter-spacing: .16em;
+      font-size: 11px;
+      letter-spacing: .14em;
       text-transform: uppercase;
-      font-weight: 900;
+      font-weight: 800;
       color: var(--accent);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
-    h1 {
-      font-size: clamp(48px, 7vw, 112px);
-      line-height: .9;
-      letter-spacing: -.075em;
-      font-weight: 950;
-      max-width: 980px;
+    .intro h1 {
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+      font-weight: 850;
+      max-width: 820px;
     }
 
     .intro-text {
-      font-size: clamp(18px, 1.5vw, 24px);
-      line-height: 1.25;
-      letter-spacing: -.035em;
-      color: #333;
-      max-width: 620px;
+      max-width: 660px;
+      margin-top: 18px;
+      font-size: clamp(16px, 1.5vw, 20px);
+      line-height: 1.45;
+      color: #393939;
+      letter-spacing: -.02em;
     }
 
     .intro-meta {
       display: flex;
-      gap: 16px;
+      gap: 12px;
       flex-wrap: wrap;
-      margin-top: 24px;
+      margin-top: 20px;
       color: var(--muted);
-      font-size: 14px;
-      font-weight: 700;
+      font-size: 13px;
+      font-weight: 650;
     }
 
-    /* Section */
-    section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+    section {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--line);
+    }
 
     .section-head {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 32px;
-      margin-bottom: 28px;
+      gap: 28px;
+      margin-bottom: 26px;
     }
 
     .section-head h2 {
-      font-size: clamp(28px, 3vw, 48px);
-      line-height: 1;
-      letter-spacing: -.06em;
-      font-weight: 950;
+      font-size: clamp(24px, 2.4vw, 34px);
+      line-height: 1.05;
+      letter-spacing: -.04em;
+      font-weight: 850;
     }
 
     .section-note {
-      max-width: 520px;
-      font-size: 14px;
+      max-width: 500px;
+      font-size: 13px;
       color: var(--muted);
     }
 
-    /* Editorial cards */
+    .subhead {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      margin: 28px 0 18px;
+    }
+
+    .subhead:first-of-type { margin-top: 0; }
+
     .story-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 28px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
     }
+
+    .story-grid.two { grid-template-columns: repeat(3, 1fr); }
+    .story-grid.four { grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .story-grid.single { grid-template-columns: repeat(3, 1fr); }
+    .story-grid.single .story-card { max-width: 360px; }
 
     .story-card {
       background: #fff;
@@ -158,94 +166,73 @@
     }
 
     .story-media {
-      aspect-ratio: 16 / 10.5;
+      height: 150px;
       overflow: hidden;
       background: #ddd;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
+      position: relative;
     }
+
+    .shortform-grid,
+    .article-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .story-media.square { aspect-ratio: 1; }
 
     .story-media img,
     .story-media video {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform .45s ease, filter .35s ease;
+      transition: transform .4s ease, filter .3s ease, opacity .3s ease;
     }
 
     .story-card:hover img,
     .story-card:hover video {
-      transform: scale(1.04);
-      filter: brightness(.92);
+      transform: scale(1.035);
+      filter: brightness(.94);
     }
 
+    .video-card video {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+    }
+
+    .video-card:hover video { opacity: 1; }
+    .video-card:hover .poster { opacity: 0; }
+
     .story-label {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--accent);
-      font-weight: 900;
+      font-weight: 850;
       letter-spacing: .08em;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
     }
 
     .story-card h3 {
-      font-size: clamp(22px, 2vw, 34px);
-      line-height: 1.12;
-      letter-spacing: -.045em;
-      font-weight: 900;
-      margin-bottom: 10px;
+      font-size: clamp(16px, 1.2vw, 19px);
+      line-height: 1.14;
+      letter-spacing: -.035em;
+      font-weight: 820;
+      margin-bottom: 8px;
     }
 
     .story-card p {
-      font-size: 14px;
+      font-size: 12.5px;
       color: var(--muted);
       max-width: 520px;
     }
 
     .story-time {
       display: block;
-      margin-top: 12px;
-      font-size: 14px;
+      margin-top: 10px;
+      font-size: 13px;
       color: #777;
     }
 
-    .lead-grid {
-      display: grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 34px;
-      margin-bottom: 34px;
-    }
-
-    .lead-card .story-media { aspect-ratio: 16 / 9; }
-    .lead-card h3 { font-size: clamp(36px, 4vw, 62px); line-height: 1.02; }
-
-    .side-stack {
-      display: grid;
-      gap: 24px;
-    }
-
-    .compact-card {
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 18px;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 24px;
-    }
-
-    .compact-card:last-child { border-bottom: 0; padding-bottom: 0; }
-    .compact-card .story-media { margin: 0; aspect-ratio: 1.2 / 1; }
-    .compact-card h3 { font-size: 22px; }
-
-    /* Video hover */
-    .video-card .story-media { position: relative; }
-    .video-card video {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-    }
-    .video-card:hover video { opacity: 1; }
-    .video-card:hover .poster { opacity: 0; }
-
-    /* Gallery */
     .visual-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
@@ -260,52 +247,78 @@
       background: #eee;
     }
 
-    .visual-grid img:hover { filter: brightness(.82); }
+    .visual-grid img:hover { filter: brightness(.85); }
 
-    /* About */
+    .social-card {
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .social-card h3 {
+      font-size: clamp(16px, 1.2vw, 19px);
+      line-height: 1.18;
+      letter-spacing: -.035em;
+      font-weight: 820;
+      margin-bottom: 10px;
+    }
+
+    .social-card span {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .social-card:hover h3 { color: var(--accent); }
+
     .about-box {
       display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 56px;
+      grid-template-columns: .65fr 1.35fr;
+      gap: 44px;
       background: var(--soft);
-      padding: 42px;
+      padding: 34px;
     }
 
     .about-box h2 {
-      font-size: clamp(34px, 4vw, 64px);
-      line-height: .95;
-      letter-spacing: -.065em;
-      font-weight: 950;
+      font-size: clamp(26px, 3vw, 42px);
+      line-height: 1;
+      letter-spacing: -.045em;
+      font-weight: 850;
     }
 
     .about-copy p {
-      font-size: 18px;
+      font-size: 16px;
       color: #333;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
 
     .about-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 22px;
+      gap: 10px;
+      margin-top: 18px;
     }
 
     .pill {
       border: 1px solid var(--line);
       background: #fff;
-      padding: 10px 14px;
+      padding: 9px 13px;
       border-radius: 999px;
-      font-size: 14px;
-      font-weight: 800;
+      font-size: 13px;
+      font-weight: 750;
     }
 
     .pill:hover { border-color: var(--accent); color: var(--accent); }
 
     footer {
-      padding: 40px 0 54px;
+      padding: 34px 0 48px;
       color: #777;
-      font-size: 14px;
+      font-size: 13px;
       display: flex;
       justify-content: space-between;
       gap: 20px;
@@ -335,28 +348,33 @@
       top: 20px;
       right: 30px;
       color: #fff;
-      font-size: 38px;
+      font-size: 34px;
       cursor: pointer;
     }
 
-    @media (max-width: 1100px) {
-      .story-grid { grid-template-columns: repeat(2, 1fr); }
-      .lead-grid { grid-template-columns: 1fr; }
+    @media (max-width: 980px) {
+      .story-grid,
+      .story-grid.two,
+      .story-grid.four,
+      .story-grid.single { grid-template-columns: repeat(2, 1fr); }
       .visual-grid { grid-template-columns: repeat(4, 1fr); }
+      .about-box { grid-template-columns: 1fr; gap: 24px; }
     }
 
-    @media (max-width: 760px) {
-      .page, .nav { width: min(100% - 36px, var(--max)); }
-      .nav { height: auto; padding: 18px 0; align-items: flex-start; flex-direction: column; }
-      .nav-links { gap: 14px; flex-wrap: wrap; font-size: 13px; }
-      .intro { padding: 52px 0 34px; }
-      .intro-grid, .about-box { grid-template-columns: 1fr; gap: 26px; }
-      .story-grid { grid-template-columns: 1fr; }
-      .compact-card { grid-template-columns: 120px 1fr; }
-      .compact-card h3 { font-size: 19px; }
+    @media (max-width: 680px) {
+      .page, .nav { width: min(100% - 34px, var(--max)); }
+      .nav { padding: 16px 0; align-items: flex-start; flex-direction: column; }
+      .nav-links { gap: 13px; flex-wrap: wrap; font-size: 12px; }
+      .intro { padding: 42px 0 30px; }
+      section { padding: 40px 0; }
+      .section-head { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .story-grid,
+      .story-grid.two,
+      .story-grid.four,
+      .story-grid.single { grid-template-columns: 1fr; }
+      .story-media { height: 190px; }
       .visual-grid { grid-template-columns: repeat(3, 1fr); }
-      .section-head { flex-direction: column; align-items: flex-start; gap: 10px; }
-      .about-box { padding: 28px; }
+      .about-box { padding: 26px; }
     }
   </style>
 </head>
@@ -366,10 +384,11 @@
     <nav class="nav">
       <a href="#top" class="logo">Lareina Wu</a>
       <div class="nav-links">
-        <a href="#top-stories">Top Stories</a>
         <a href="#video">Video</a>
         <a href="#articles">Articles</a>
-        <a href="#visuals">Visuals</a>
+        <a href="#social">Social Media</a>
+        <a href="#graphics">Graphic Design</a>
+        <a href="#photography">Photography</a>
         <a href="#about">About</a>
         <a href="mailto:Lareinawu111@gmail.com">Contact</a>
       </div>
@@ -378,33 +397,28 @@
 
   <main class="page" id="top">
     <section class="intro">
-      <div class="intro-grid">
-        <div>
-          <div class="kicker">Portfolio / Journalism / Video Production</div>
-          <h1>Multimedia stories on global affairs, culture and public life.</h1>
-        </div>
-        <div>
-          <p class="intro-text">
-            I’m Lareina Wu, a multimedia journalist and producer focusing on global affairs, video production and visual storytelling across Asia-Pacific.
-          </p>
-          <div class="intro-meta">
-            <span>Producer</span>
-            <span>Editor</span>
-            <span>Reporter</span>
-            <span>Content Creator</span>
-          </div>
-        </div>
+      <div class="kicker">Portfolio / Journalism / Video Production</div>
+      <h1>Lareina Wu</h1>
+      <p class="intro-text">
+        Multimedia journalist and producer focusing on global affairs, video production and visual storytelling across Asia-Pacific.
+      </p>
+      <div class="intro-meta">
+        <span>People's Daily</span>
+        <span>United Nations</span>
+        <span>University of Melbourne</span>
+        <span>30M+ views</span>
       </div>
     </section>
 
-    <section id="top-stories">
+    <section id="video">
       <div class="section-head">
-        <h2>Top Stories</h2>
-        <p class="section-note">A clean, editorial-first view of selected work across video interviews, reporting and digital storytelling.</p>
+        <h2>Video</h2>
+        <p class="section-note">Long-form interviews, short-form digital storytelling and production work.</p>
       </div>
 
-      <div class="lead-grid">
-        <a href="https://peoplesdaily.pdnews.cn/trending/er/30049939401" target="_blank" class="story-card lead-card video-card">
+      <h3 class="subhead">Long-form</h3>
+      <div class="story-grid two">
+        <a href="https://peoplesdaily.pdnews.cn/trending/er/30049939401" target="_blank" class="story-card video-card">
           <div class="story-media">
             <img src="assets/images/v_long2.jpg" class="poster" alt="Ray Chen PD Studio">
             <video muted loop playsinline><source src="assets/videos/ray_chen.mp4" type="video/mp4"></video>
@@ -415,47 +429,20 @@
           <span class="story-time">Video Interview</span>
         </a>
 
-        <div class="side-stack">
-          <a href="https://peoplesdaily.pdnews.cn/pd-cafe/er/30050394825" target="_blank" class="story-card compact-card video-card">
-            <div class="story-media">
-              <img src="assets/images/v_long1.jpg" class="poster" alt="Jake Miller PD Cafe">
-              <video muted loop playsinline><source src="assets/videos/jake_miller.mp4" type="video/mp4"></video>
-            </div>
-            <div>
-              <div class="story-label">People's Daily</div>
-              <h3>PD Café | Jake Miller</h3>
-              <p>Social media, cultural barriers and global music collaboration.</p>
-            </div>
-          </a>
-
-          <a href="https://peoplesdaily.pdnews.cn/china/er/30051228754" target="_blank" class="story-card compact-card">
-            <div class="story-media"><img src="assets/images/art1.jpg" alt="China Up Close article"></div>
-            <div>
-              <div class="story-label">People's Daily</div>
-              <h3>China Up Close | How young Chinese are tailoring inbound tourism</h3>
-              <p>How young Chinese use cultural insight and digital tools to reshape travel experiences.</p>
-            </div>
-          </a>
-
-          <a href="https://newmediastory.shorthandstories.com/paint-strings-and-resistance/index.html" target="_blank" class="story-card compact-card">
-            <div class="story-media"><img src="assets/images/art4.jpg" alt="Interactive storytelling feature"></div>
-            <div>
-              <div class="story-label">Interactive Storytelling</div>
-              <h3>Paint, Strings, and Resistance</h3>
-              <p>A multimedia feature on visual arts, resistance and women’s visibility.</p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="video">
-      <div class="section-head">
-        <h2>Video</h2>
-        <p class="section-note">Long-form interviews, short-form digital storytelling and production work.</p>
+        <a href="https://peoplesdaily.pdnews.cn/pd-cafe/er/30050394825" target="_blank" class="story-card video-card">
+          <div class="story-media">
+            <img src="assets/images/v_long1.jpg" class="poster" alt="Jake Miller PD Cafe">
+            <video muted loop playsinline><source src="assets/videos/jake_miller.mp4" type="video/mp4"></video>
+          </div>
+          <div class="story-label">People's Daily · Lead Production</div>
+          <h3>PD Café | Jake Miller</h3>
+          <p>Exploring how social media breaks cultural barriers and supports global music collaboration.</p>
+          <span class="story-time">Video Interview</span>
+        </a>
       </div>
 
-      <div class="story-grid">
+      <h3 class="subhead">Short-form</h3>
+      <div class="story-grid shortform-grid">
         <a href="https://peoplesdaily.pdnews.cn/trending/er/30050524191" target="_blank" class="story-card video-card">
           <div class="story-media">
             <img src="assets/images/v_s3.jpg" class="poster" alt="Seoul Robot AI Museum">
@@ -488,7 +475,10 @@
           <p>SCO Summit special exploring street food, coastal culture and city atmosphere.</p>
           <span class="story-time">Short-form Video</span>
         </a>
+      </div>
 
+      <h3 class="subhead">Podcast</h3>
+      <div class="story-grid single">
         <a href="https://podcasts.apple.com/au/podcast/uncurated/id1588841724?i=1000677860463" target="_blank" class="story-card">
           <div class="story-media"><img src="assets/images/podcast-cover.jpg" alt="UNCURATED podcast cover"></div>
           <div class="story-label">Podcast · Co-Producer</div>
@@ -502,10 +492,18 @@
     <section id="articles">
       <div class="section-head">
         <h2>Articles</h2>
-        <p class="section-note">Feature writing, digital reporting and interactive storytelling across culture, society and media.</p>
+        <p class="section-note">Feature writing and digital reporting across culture, society and media.</p>
       </div>
 
-      <div class="story-grid">
+      <div class="story-grid article-grid">
+        <a href="https://peoplesdaily.pdnews.cn/china/er/30051228754" target="_blank" class="story-card">
+          <div class="story-media"><img src="assets/images/art1.jpg" alt="China Up Close article"></div>
+          <div class="story-label">People's Daily</div>
+          <h3>China Up Close | How young Chinese are tailoring the inbound tourist experience</h3>
+          <p>How younger generations use cultural insight and digital tools to reshape travel experiences.</p>
+          <span class="story-time">Digital Reporting</span>
+        </a>
+
         <a href="https://www.thecitizen.org.au/articles/navigating-the-challenges-and-rewards-of-life-studying-abroad" target="_blank" class="story-card">
           <div class="story-media"><img src="assets/images/art3.jpg" alt="The Citizen article"></div>
           <div class="story-label">The Citizen</div>
@@ -521,31 +519,48 @@
           <p>A reflective narrative about human connection, correspondence and unexpected digital interaction.</p>
           <span class="story-time">Essay</span>
         </a>
+      </div>
+    </section>
 
-        <a href="https://newmediastory.shorthandstories.com/the-booming-of-online-occult-business-the-potential-risks-exist/index.html" target="_blank" class="story-card">
-          <div class="story-media"><img src="assets/images/art5.jpg" alt="Online occult business article"></div>
-          <div class="story-label">Interactive Storytelling</div>
-          <h3>The Booming of Online Occult Business</h3>
-          <p>An investigation into the rise of digital occult markets, consumer psychology and hidden risks.</p>
-          <span class="story-time">Multimedia Feature</span>
+
+    <section id="social">
+      <div class="section-head">
+        <h2>Social Media Posts</h2>
+        <p class="section-note">Selected LinkedIn posts on global development, communications and public engagement.</p>
+      </div>
+
+      <div class="story-grid">
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7338532144450781184/" target="_blank" class="social-card">
+          <div>
+            <span>LinkedIn Post</span>
+            <h3>Global development and communications update</h3>
+          </div>
+          <p>View post →</p>
         </a>
 
-        <a href="https://peoplesdaily.pdnews.cn/china/er/30051228754" target="_blank" class="story-card">
-          <div class="story-media"><img src="assets/images/art1.jpg" alt="China Up Close article"></div>
-          <div class="story-label">People's Daily</div>
-          <h3>China Up Close | How young Chinese are tailoring the inbound tourist experience</h3>
-          <p>How younger generations use cultural insight and digital tools to reshape travel experiences.</p>
-          <span class="story-time">Digital Reporting</span>
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7338420991624171520/" target="_blank" class="social-card">
+          <div>
+            <span>LinkedIn Post</span>
+            <h3>Multimedia storytelling and public engagement</h3>
+          </div>
+          <p>View post →</p>
+        </a>
+
+        <a href="https://www.linkedin.com/posts/lareinawu111_ldcs-lldcs-sids-ugcPost-7455107958990090241-VoN8/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEZ9h7QB4cSmYbBN6SQHZ_K4oDX3nOnyTp4" target="_blank" class="social-card">
+          <div>
+            <span>LinkedIn Post</span>
+            <h3>LDCs, LLDCs and SIDS communications post</h3>
+          </div>
+          <p>View post →</p>
         </a>
       </div>
     </section>
 
-    <section id="visuals">
+    <section id="graphics">
       <div class="section-head">
-        <h2>Visual Archive</h2>
-        <p class="section-note">A lighter selection of design and photography work, kept secondary so the reporting remains the focus.</p>
+        <h2>Graphic Design</h2>
+        <p class="section-note">Selected visual communication and social media design work.</p>
       </div>
-
       <div class="visual-grid">
         <img src="assets/images/sm1.jpg" onclick="openLightbox(this)" alt="Graphic design 1">
         <img src="assets/images/sm2.jpg" onclick="openLightbox(this)" alt="Graphic design 2">
@@ -553,12 +568,35 @@
         <img src="assets/images/sm4.jpg" onclick="openLightbox(this)" alt="Graphic design 4">
         <img src="assets/images/sm5.jpg" onclick="openLightbox(this)" alt="Graphic design 5">
         <img src="assets/images/sm6.jpg" onclick="openLightbox(this)" alt="Graphic design 6">
+        <img src="assets/images/sm7.jpg" onclick="openLightbox(this)" alt="Graphic design 7">
+        <img src="assets/images/sm8.jpg" onclick="openLightbox(this)" alt="Graphic design 8">
+        <img src="assets/images/sm9.jpg" onclick="openLightbox(this)" alt="Graphic design 9">
+        <img src="assets/images/sm10.jpg" onclick="openLightbox(this)" alt="Graphic design 10">
+        <img src="assets/images/sm11.jpg" onclick="openLightbox(this)" alt="Graphic design 11">
+        <img src="assets/images/sm12.jpg" onclick="openLightbox(this)" alt="Graphic design 12">
+      </div>
+    </section>
+
+    <section id="photography">
+      <div class="section-head">
+        <h2>Photography</h2>
+        <p class="section-note">A visual archive of travel, people, culture and everyday observation.</p>
+      </div>
+      <div class="visual-grid">
         <img src="assets/images/p1.jpg" onclick="openLightbox(this)" alt="Photography 1">
         <img src="assets/images/p2.jpg" onclick="openLightbox(this)" alt="Photography 2">
         <img src="assets/images/p3.jpg" onclick="openLightbox(this)" alt="Photography 3">
         <img src="assets/images/p4.jpg" onclick="openLightbox(this)" alt="Photography 4">
         <img src="assets/images/p5.jpg" onclick="openLightbox(this)" alt="Photography 5">
         <img src="assets/images/p6.jpg" onclick="openLightbox(this)" alt="Photography 6">
+        <img src="assets/images/p7.jpg" onclick="openLightbox(this)" alt="Photography 7">
+        <img src="assets/images/p8.jpg" onclick="openLightbox(this)" alt="Photography 8">
+        <img src="assets/images/p9.jpg" onclick="openLightbox(this)" alt="Photography 9">
+        <img src="assets/images/p10.jpg" onclick="openLightbox(this)" alt="Photography 10">
+        <img src="assets/images/p11.jpg" onclick="openLightbox(this)" alt="Photography 11">
+        <img src="assets/images/p12.jpg" onclick="openLightbox(this)" alt="Photography 12">
+        <img src="assets/images/p13.jpg" onclick="openLightbox(this)" alt="Photography 13">
+        <img src="assets/images/p14.jpg" onclick="openLightbox(this)" alt="Photography 14">
       </div>
     </section>
 
@@ -570,7 +608,7 @@
             Lareina Wu is a multimedia journalist and producer with experience across video production, digital reporting, visual storytelling and public communication.
           </p>
           <p>
-            Her work spans People’s Daily, The Citizen, interactive multimedia features, podcast production and visual communication projects.
+            Her work spans People’s Daily, The Citizen, podcast production, visual communication projects and international communications experience.
           </p>
           <div class="about-links">
             <a class="pill" href="assets/CV.pdf" target="_blank">View CV</a>
@@ -584,7 +622,7 @@
 
     <footer>
       <span>&copy; 2026 Lareina Wu</span>
-      <span>Multimedia Journalist · Producer · Editor · Content Creator</span>
+      <span>Multimedia Journalist · Producer · Editor</span>
     </footer>
   </main>
 
