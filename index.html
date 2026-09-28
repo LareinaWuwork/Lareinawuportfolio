@@ -178,7 +178,6 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    /* Short-form showcase */
     .shortform-showcase {
       width: calc(100vw - 32px);
       margin: 58px 0 0 50%;
@@ -517,11 +516,11 @@
       .story-media { height: 190px; }
       .visual-grid { grid-template-columns: repeat(3, 1fr); }
       .shortform-showcase {
-        width: calc(100vw - 16px);
-        padding: 34px 16px;
-        margin-top: 42px;
+        width: calc(100vw - 28px);
+        margin-top: 34px;
+        padding: 28px 16px;
       }
-      .shortform-title { font-size: clamp(34px, 10vw, 54px); }
+      .shortform-title { font-size: clamp(32px, 9vw, 44px); }
       .shortform-grid {
         display: flex;
         gap: 14px;
@@ -535,6 +534,114 @@
         scroll-snap-align: start;
       }
       .about-box { padding: 26px; }
+    }
+
+    /* Site-wide visual system */
+    :root {
+      --ink: #17191e;
+      --muted: #666b74;
+      --soft: #f7f7f5;
+      --line: rgba(255, 255, 255, .16);
+      --accent: #b94e3d;
+    }
+
+    body {
+      background: #1c2029;
+      color: #f7f7f5;
+    }
+
+    header {
+      background: rgba(28, 32, 41, .95);
+      border-bottom-color: rgba(255, 255, 255, .14);
+    }
+
+    .logo { color: #fff; }
+    .nav-links { color: #c8cbd2; }
+    .intro { border-bottom-color: var(--line); }
+    .intro-text { color: #d0d2d8; }
+    .intro-meta { color: #b6bac3; }
+    section { border-bottom-color: var(--line); }
+    .section-head h2 { color: #fff; }
+    .section-note { color: #b6bac3; }
+    .subhead { color: #e17b68; }
+
+    .story-card {
+      color: var(--ink);
+      background: #f8f8f6;
+      border-radius: 12px;
+      overflow: hidden;
+      padding-bottom: 18px;
+    }
+
+    .story-media {
+      height: 190px;
+      margin-bottom: 16px;
+    }
+
+    .story-card .story-label,
+    .story-card h3,
+    .story-card p,
+    .story-card .story-time {
+      margin-left: 18px;
+      margin-right: 18px;
+    }
+
+    .story-card .story-label { margin-top: 16px; }
+    .story-card p { color: #626770; }
+    .story-time { color: #70747c; }
+
+    .story-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .social-card {
+      border: 0;
+      border-radius: 12px;
+      background: #f8f8f6;
+      color: var(--ink);
+      padding: 20px;
+      min-height: 190px;
+    }
+
+    .social-card h3 { color: var(--ink); }
+    .social-card p { color: var(--accent); }
+
+    .visual-grid img {
+      border-radius: 10px;
+    }
+
+    .about-box {
+      background: #f8f8f6;
+      color: var(--ink);
+      border-radius: 14px;
+    }
+
+    .about-copy p { color: #393d44; }
+    .pill { border-color: #d8d9dc; color: var(--ink); }
+
+    footer { color: #b6bac3; }
+
+    .shortform-showcase {
+      width: min(1040px, calc(100vw - 48px));
+      margin-top: 46px;
+      padding: clamp(28px, 3.5vw, 48px);
+      background: #252b36;
+    }
+
+    .shortform-title {
+      font-size: clamp(34px, 4.5vw, 58px);
+      margin-bottom: clamp(24px, 3vw, 38px);
+    }
+
+    .shortform-grid { gap: 14px; }
+
+    @media (max-width: 680px) {
+      .story-grid.two { grid-template-columns: 1fr; }
+      .story-media { height: 190px; }
+      .shortform-showcase {
+        width: calc(100vw - 28px);
+        margin-top: 34px;
+        padding: 28px 16px;
+      }
+      .shortform-title { font-size: clamp(32px, 9vw, 44px); }
     }
   </style>
 </head>
@@ -735,6 +842,7 @@
         <h2>Graphic Design</h2>
         <p class="section-note">Selected visual communication and social media design work.</p>
       </div>
+
       <div class="visual-grid">
         <img src="assets/images/sm1.jpg" onclick="openLightbox(this)" alt="Graphic design 1">
         <img src="assets/images/sm2.jpg" onclick="openLightbox(this)" alt="Graphic design 2">
