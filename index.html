@@ -178,7 +178,7 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    /* Short-form work: dark editorial showcase */
+    /* Short-form showcase */
     .shortform-showcase {
       width: calc(100vw - 32px);
       margin: 58px 0 0 50%;
@@ -219,8 +219,7 @@
       background: #090a0c;
     }
 
-    .shortform-card .story-media img,
-    .shortform-card .story-media video {
+    .shortform-card .story-media img {
       object-fit: cover;
     }
 
@@ -236,9 +235,26 @@
     .shortform-card h3 { font-size: clamp(18px, 1.7vw, 24px); }
     .shortform-card p { font-size: 14px; line-height: 1.5; }
     .shortform-card .story-time { font-size: 13px; }
+    .shortform-card .source-link { margin-top: 12px; }
 
+    .story-media.square { aspect-ratio: 1; }
+
+    .story-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease, filter .3s ease, opacity .3s ease;
+    }
+
+    .story-card:hover img {
+      transform: scale(1.035);
+      filter: brightness(.94);
+    }
+
+    .video-play,
     .shortform-play {
       position: absolute;
+      z-index: 2;
       left: 50%;
       top: 50%;
       width: 66px;
@@ -246,41 +262,79 @@
       display: grid;
       place-items: center;
       transform: translate(-50%, -50%);
+      border: 0;
       border-radius: 50%;
       background: rgba(255,255,255,.88);
       color: #17191e;
       font-size: 25px;
       padding-left: 4px;
-      pointer-events: none;
+      cursor: pointer;
       transition: opacity .25s ease;
     }
 
-    .shortform-card:hover .shortform-play { opacity: 0; }
-
-    .story-media.square { aspect-ratio: 1; }
-
-    .story-media img,
-    .story-media video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .4s ease, filter .3s ease, opacity .3s ease;
-    }
-
-    .story-card:hover img,
-    .story-card:hover video {
-      transform: scale(1.035);
-      filter: brightness(.94);
-    }
-
-    .video-card video {
-      position: absolute;
+    .video-lightbox {
+      display: none;
+      position: fixed;
       inset: 0;
-      opacity: 0;
+      z-index: 1200;
+      background: rgba(10, 12, 16, .92);
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
     }
 
-    .video-card:hover video { opacity: 1; }
-    .video-card:hover .poster { opacity: 0; }
+    .video-lightbox.open { display: flex; }
+
+    .video-dialog {
+      position: relative;
+      width: min(1100px, 100%);
+      max-height: 92vh;
+      overflow: auto;
+      padding: 24px;
+      border-radius: 14px;
+      background: #1c2029;
+      color: #fff;
+    }
+
+    .video-dialog iframe {
+      display: block;
+      width: 100%;
+      height: min(70vh, 640px);
+      border: 0;
+      background: #090a0c;
+    }
+
+    .video-close {
+      display: block;
+      margin: 0 0 12px auto;
+      border: 0;
+      background: transparent;
+      color: #fff;
+      font: inherit;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .video-help {
+      margin: 14px 0 8px;
+      color: #d0d2d8;
+      font-size: 13px;
+    }
+
+    .video-open-original {
+      color: #fff;
+      text-decoration: underline;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .source-link {
+      display: inline-block;
+      margin: 14px 18px 0;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 750;
+    }
 
     .story-label {
       font-size: 11px;
@@ -524,90 +578,75 @@
 
       <h3 class="subhead">Long-form - Produced and comissioned</h3>
       <div class="story-grid two">
-        <a href="https://peoplesdaily.pdnews.cn/trending/er/30049939401"
-           target="_blank" class="story-card video-card">
+        <article class="story-card video-card">
           <div class="story-media">
             <img src="assets/images/v_long2.jpg" class="poster" alt="Ray Chen PD Studio">
-            <video muted loop playsinline>
-              <source src="assets/videos/ray_chen.mp4" type="video/mp4">
-            </video>
+            <button class="video-play" type="button" aria-label="Play video">▶</button>
           </div>
           <div class="story-label">People's Daily · Lead Production</div>
           <h3>PD Studio | Ray Chen</h3>
           <p>Violinist Ray Chen is combining accomplished musicianship with a captivating online presence to make the genre more accessible.</p>
           <span class="story-time">Video Interview</span>
-        </a>
+          <a class="source-link" href="https://peoplesdaily.pdnews.cn/trending/er/30049939401" target="_blank" rel="noopener noreferrer">Watch on People’s Daily ↗</a>
+        </article>
 
-        <a href="https://peoplesdaily.pdnews.cn/pd-cafe/er/30050394825"
-           target="_blank" class="story-card video-card">
+        <article class="story-card video-card">
           <div class="story-media">
             <img src="assets/images/v_long1.jpg" class="poster" alt="Jake Miller PD Cafe">
-            <video muted loop playsinline>
-              <source src="assets/videos/jake_miller.mp4" type="video/mp4">
-            </video>
+            <button class="video-play" type="button" aria-label="Play video">▶</button>
           </div>
           <div class="story-label">People's Daily · Lead Production</div>
           <h3>PD Café | Jake Miller</h3>
           <p>American artist Jake Miller unexpectedly found fame in China when his song "Rumors" became a social media sensation in 2023.</p>
           <span class="story-time">Video Interview</span>
-        </a>
+          <a class="source-link" href="https://peoplesdaily.pdnews.cn/pd-cafe/er/30050394825" target="_blank" rel="noopener noreferrer">Watch on People’s Daily ↗</a>
+        </article>
       </div>
 
       <div class="shortform-showcase">
         <h3 class="shortform-title">Produced editorial talent.</h3>
-
         <div class="story-grid shortform-grid">
-          <a href="https://peoplesdaily.pdnews.cn/trending/er/30050524191"
-             target="_blank" class="story-card video-card shortform-card">
+          <article class="story-card video-card shortform-card">
             <div class="story-media">
               <img src="assets/images/v_s3.jpg" class="poster" alt="Seoul Robot AI Museum">
-              <video muted loop playsinline>
-                <source src="assets/videos/v_s1.mp4" type="video/mp4">
-              </video>
-              <span class="shortform-play" aria-hidden="true">▶</span>
+              <button class="shortform-play" type="button" aria-label="Play video">▶</button>
             </div>
             <div class="story-label">Research &amp; Production</div>
             <h3>Seoul Robot &amp; AI Museum</h3>
             <p>Showcasing the future of technology and China-South Korea collaboration.</p>
             <span class="story-time">Short-form Video</span>
-          </a>
+            <a class="source-link" href="https://peoplesdaily.pdnews.cn/trending/er/30050524191" target="_blank" rel="noopener noreferrer">Watch on People’s Daily ↗</a>
+          </article>
 
-          <a href="https://peoplesdaily.pdnews.cn/trending/er/30050175051"
-             target="_blank" class="story-card video-card shortform-card">
+          <article class="story-card video-card shortform-card">
             <div class="story-media">
               <img src="assets/images/v_s1.jpg" class="poster" alt="V-Day Parade">
-              <video muted loop playsinline>
-                <source src="assets/videos/v_s2.mp4" type="video/mp4">
-              </video>
-              <span class="shortform-play" aria-hidden="true">▶</span>
+              <button class="shortform-play" type="button" aria-label="Play video">▶</button>
             </div>
             <div class="story-label">Research &amp; Production</div>
             <h3>V-Day Parade</h3>
             <p>Analyzing international reception of China’s 80th anniversary military parade.</p>
             <span class="story-time">Short-form Video</span>
-          </a>
+            <a class="source-link" href="https://peoplesdaily.pdnews.cn/trending/er/30050175051" target="_blank" rel="noopener noreferrer">Watch on People’s Daily ↗</a>
+          </article>
 
-          <a href="https://peoplesdaily.pdnews.cn/trending/er/30049600058"
-             target="_blank" class="story-card video-card shortform-card">
+          <article class="story-card video-card shortform-card">
             <div class="story-media">
               <img src="assets/images/v_s2.jpg" class="poster" alt="Tianjin Vibes">
-              <video muted loop playsinline>
-                <source src="assets/videos/v_s3.mp4" type="video/mp4">
-              </video>
-              <span class="shortform-play" aria-hidden="true">▶</span>
+              <button class="shortform-play" type="button" aria-label="Play video">▶</button>
             </div>
             <div class="story-label">Research &amp; Production</div>
             <h3>Tianjin Vibes</h3>
             <p>SCO Summit special exploring street food, coastal culture and city atmosphere.</p>
             <span class="story-time">Short-form Video</span>
-          </a>
+            <a class="source-link" href="https://peoplesdaily.pdnews.cn/trending/er/30049600058" target="_blank" rel="noopener noreferrer">Watch on People’s Daily ↗</a>
+          </article>
         </div>
       </div>
 
       <h3 class="subhead">Podcast</h3>
       <div class="story-grid single">
-        <a href="https://podcasts.apple.com/au/podcast/uncurated/id1588841724?i=1000677860463"
-           target="_blank" class="story-card">
+        <a href="https://podcasts.apple.com/au/podcast/uncurated/id1588841724?i=1000677860463" target="_blank" class="story-card">
           <div class="story-media">
             <img src="assets/images/podcast-cover.jpg" alt="UNCURATED podcast cover">
           </div>
@@ -626,8 +665,7 @@
       </div>
 
       <div class="story-grid article-grid">
-        <a href="https://peoplesdaily.pdnews.cn/china/er/30051228754"
-           target="_blank" class="story-card">
+        <a href="https://peoplesdaily.pdnews.cn/china/er/30051228754" target="_blank" class="story-card">
           <div class="story-media">
             <img src="assets/images/art1.jpg" alt="China Up Close article">
           </div>
@@ -637,8 +675,7 @@
           <span class="story-time">Digital Reporting</span>
         </a>
 
-        <a href="https://www.thecitizen.org.au/articles/navigating-the-challenges-and-rewards-of-life-studying-abroad"
-           target="_blank" class="story-card">
+        <a href="https://www.thecitizen.org.au/articles/navigating-the-challenges-and-rewards-of-life-studying-abroad" target="_blank" class="story-card">
           <div class="story-media">
             <img src="assets/images/art3.jpg" alt="The Citizen article">
           </div>
@@ -648,8 +685,7 @@
           <span class="story-time">Feature</span>
         </a>
 
-        <a href="https://lareinawu.substack.com/p/an-unexpected-reply"
-           target="_blank" class="story-card">
+        <a href="https://lareinawu.substack.com/p/an-unexpected-reply" target="_blank" class="story-card">
           <div class="story-media">
             <img src="assets/images/art2.jpg" alt="Substack article">
           </div>
@@ -668,8 +704,7 @@
       </div>
 
       <div class="story-grid">
-        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7338532144450781184/"
-           target="_blank" class="social-card">
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7338532144450781184/" target="_blank" class="social-card">
           <div>
             <span>LinkedIn Post</span>
             <h3>German companies remain convinced of the long-term value of investing in China.</h3>
@@ -677,8 +712,7 @@
           <p>View post →</p>
         </a>
 
-        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7338420991624171520/"
-           target="_blank" class="social-card">
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7338420991624171520/" target="_blank" class="social-card">
           <div>
             <span>LinkedIn Post</span>
             <h3>China's rapid growth in artificial intelligence (AI) and cross-border e-commerce will shape the country's future development path in international trade and boost the growth of global trade.</h3>
@@ -686,8 +720,7 @@
           <p>View post →</p>
         </a>
 
-        <a href="https://www.linkedin.com/posts/lareinawu111_ldcs-lldcs-sids-ugcPost-7455107958990090241-VoN8/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEZ9h7QB4cSmYbBN6SQHZ_K4oDX3nOnyTp4"
-           target="_blank" class="social-card">
+        <a href="https://www.linkedin.com/posts/lareinawu111_ldcs-lldcs-sids-ugcPost-7455107958990090241-VoN8/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEZ9h7QB4cSmYbBN6SQHZ_K4oDX3nOnyTp4" target="_blank" class="social-card">
           <div>
             <span>LinkedIn Post</span>
             <h3>LDCs, LLDCs and SIDS communications post</h3>
@@ -702,7 +735,6 @@
         <h2>Graphic Design</h2>
         <p class="section-note">Selected visual communication and social media design work.</p>
       </div>
-
       <div class="visual-grid">
         <img src="assets/images/sm1.jpg" onclick="openLightbox(this)" alt="Graphic design 1">
         <img src="assets/images/sm2.jpg" onclick="openLightbox(this)" alt="Graphic design 2">
@@ -745,6 +777,15 @@
     </footer>
   </main>
 
+  <div id="video-lightbox" class="video-lightbox" aria-hidden="true" onclick="closeVideoLightbox(event)">
+    <div class="video-dialog" role="dialog" aria-modal="true" aria-label="People's Daily video">
+      <button class="video-close" type="button" aria-label="Close video" onclick="closeVideoLightbox()">&times;</button>
+      <iframe id="embedded-video" title="People's Daily video page" src="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      <p class="video-help">If the video does not appear here, People's Daily may block embedding.</p>
+      <a id="video-open-original" class="video-open-original" href="#" target="_blank" rel="noopener noreferrer">Open on People's Daily ↗</a>
+    </div>
+  </div>
+
   <div id="photo-lightbox" class="lightbox" onclick="closeLightbox()">
     <span class="close-btn">&times;</span>
     <img id="full-photo" alt="Expanded visual">
@@ -752,18 +793,34 @@
 
   <script>
     document.querySelectorAll('.video-card').forEach(card => {
-      const video = card.querySelector('video');
-      if (!video) return;
+      const playButton = card.querySelector('.video-play, .shortform-play');
+      const sourceLink = card.querySelector('.source-link');
+      if (!playButton || !sourceLink) return;
 
-      card.addEventListener('mouseenter', () => {
-        video.play().catch(() => {});
-      });
-
-      card.addEventListener('mouseleave', () => {
-        video.pause();
-        video.currentTime = 0;
+      playButton.addEventListener('click', () => {
+        openVideoLightbox(sourceLink.href);
       });
     });
+
+    function openVideoLightbox(url) {
+      const lightbox = document.getElementById('video-lightbox');
+      const frame = document.getElementById('embedded-video');
+      const originalLink = document.getElementById('video-open-original');
+      frame.src = url;
+      originalLink.href = url;
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeVideoLightbox(event) {
+      if (event && event.target !== event.currentTarget) return;
+      const lightbox = document.getElementById('video-lightbox');
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.getElementById('embedded-video').src = '';
+      document.body.style.overflow = 'auto';
+    }
 
     function openLightbox(element) {
       const lightbox = document.getElementById('photo-lightbox');
