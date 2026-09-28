@@ -175,8 +175,87 @@
 
     .shortform-grid,
     .article-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+
+    /* Short-form work: dark editorial showcase */
+    .shortform-showcase {
+      width: calc(100vw - 32px);
+      margin: 58px 0 0 50%;
+      transform: translateX(-50%);
+      padding: clamp(34px, 5vw, 76px) max(28px, calc((100vw - var(--max)) / 2));
+      background: #1c2029;
+      color: #f7f7f5;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .shortform-title {
+      margin: 0 0 clamp(28px, 4vw, 54px);
+      font-size: clamp(38px, 6.3vw, 78px);
+      line-height: .98;
+      letter-spacing: -.06em;
+      font-weight: 800;
+    }
+
+    .shortform-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .shortform-card {
+      color: var(--ink);
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      padding-bottom: 20px;
+    }
+
+    .shortform-card .story-media {
+      height: auto;
+      aspect-ratio: 4 / 5;
+      margin: 0;
+      background: #090a0c;
+    }
+
+    .shortform-card .story-media img,
+    .shortform-card .story-media video {
+      object-fit: cover;
+    }
+
+    .shortform-card .story-label,
+    .shortform-card h3,
+    .shortform-card p,
+    .shortform-card .story-time {
+      margin-left: 18px;
+      margin-right: 18px;
+    }
+
+    .shortform-card .story-label { margin-top: 18px; }
+    .shortform-card h3 { font-size: clamp(18px, 1.7vw, 24px); }
+    .shortform-card p { font-size: 14px; line-height: 1.5; }
+    .shortform-card .story-time { font-size: 13px; }
+
+    .shortform-play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 66px;
+      height: 66px;
+      display: grid;
+      place-items: center;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: rgba(255,255,255,.88);
+      color: #17191e;
+      font-size: 25px;
+      padding-left: 4px;
+      pointer-events: none;
+      transition: opacity .25s ease;
+    }
+
+    .shortform-card:hover .shortform-play { opacity: 0; }
 
     .story-media.square { aspect-ratio: 1; }
 
@@ -358,6 +437,15 @@
       .story-grid.four,
       .story-grid.single { grid-template-columns: repeat(2, 1fr); }
       .visual-grid { grid-template-columns: repeat(4, 1fr); }
+      .shortform-showcase {
+        width: calc(100vw - 24px);
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+      .shortform-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
       .about-box { grid-template-columns: 1fr; gap: 24px; }
     }
 
@@ -374,6 +462,24 @@
       .story-grid.single { grid-template-columns: 1fr; }
       .story-media { height: 190px; }
       .visual-grid { grid-template-columns: repeat(3, 1fr); }
+      .shortform-showcase {
+        width: calc(100vw - 16px);
+        padding: 34px 16px;
+        margin-top: 42px;
+      }
+      .shortform-title { font-size: clamp(34px, 10vw, 54px); }
+      .shortform-grid {
+        display: flex;
+        gap: 14px;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+      .shortform-card {
+        flex: 0 0 min(76vw, 250px);
+        scroll-snap-align: start;
+      }
       .about-box { padding: 26px; }
     }
   </style>
@@ -414,26 +520,31 @@
     <section id="video">
       <div class="section-head">
         <h2>Video</h2>
-        
       </div>
 
-      <h3 class="subhead">Long-form - Produced and comissioned </h3>
+      <h3 class="subhead">Long-form - Produced and comissioned</h3>
       <div class="story-grid two">
-        <a href="https://peoplesdaily.pdnews.cn/trending/er/30049939401" target="_blank" class="story-card video-card">
+        <a href="https://peoplesdaily.pdnews.cn/trending/er/30049939401"
+           target="_blank" class="story-card video-card">
           <div class="story-media">
             <img src="assets/images/v_long2.jpg" class="poster" alt="Ray Chen PD Studio">
-            <video muted loop playsinline><source src="assets/videos/ray_chen.mp4" type="video/mp4"></video>
+            <video muted loop playsinline>
+              <source src="assets/videos/ray_chen.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="story-label">People's Daily · Lead Production</div>
           <h3>PD Studio | Ray Chen</h3>
-          <p> Violinist Ray Chen is combining accomplished musicianship with a captivating online presence to make the genre more accessible.</p>
+          <p>Violinist Ray Chen is combining accomplished musicianship with a captivating online presence to make the genre more accessible.</p>
           <span class="story-time">Video Interview</span>
         </a>
 
-        <a href="https://peoplesdaily.pdnews.cn/pd-cafe/er/30050394825" target="_blank" class="story-card video-card">
+        <a href="https://peoplesdaily.pdnews.cn/pd-cafe/er/30050394825"
+           target="_blank" class="story-card video-card">
           <div class="story-media">
             <img src="assets/images/v_long1.jpg" class="poster" alt="Jake Miller PD Cafe">
-            <video muted loop playsinline><source src="assets/videos/jake_miller.mp4" type="video/mp4"></video>
+            <video muted loop playsinline>
+              <source src="assets/videos/jake_miller.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="story-label">People's Daily · Lead Production</div>
           <h3>PD Café | Jake Miller</h3>
@@ -442,46 +553,64 @@
         </a>
       </div>
 
-      <h3 class="subhead">Short-form - Produced Editorial Talent </h3>
-      <div class="story-grid shortform-grid">
-        <a href="https://peoplesdaily.pdnews.cn/trending/er/30050524191" target="_blank" class="story-card video-card">
-          <div class="story-media">
-            <img src="assets/images/v_s3.jpg" class="poster" alt="Seoul Robot AI Museum">
-            <video muted loop playsinline><source src="assets/videos/v_s1.mp4" type="video/mp4"></video>
-          </div>
-          <div class="story-label">Research & Production</div>
-          <h3>Seoul Robot & AI Museum</h3>
-          <p>Showcasing the future of technology and China-South Korea collaboration. </p>
-          <span class="story-time">Short-form Video</span>
-        </a>
+      <div class="shortform-showcase">
+        <h3 class="shortform-title">Produced editorial talent.</h3>
 
-        <a href="https://peoplesdaily.pdnews.cn/trending/er/30050175051" target="_blank" class="story-card video-card">
-          <div class="story-media">
-            <img src="assets/images/v_s1.jpg" class="poster" alt="V-Day Parade">
-            <video muted loop playsinline><source src="assets/videos/v_s2.mp4" type="video/mp4"></video>
-          </div>
-          <div class="story-label">Research & Production</div>
-          <h3>V-Day Parade</h3>
-          <p>Analyzing international reception of China’s 80th anniversary military parade.</p>
-          <span class="story-time">Short-form Video</span>
-        </a>
+        <div class="story-grid shortform-grid">
+          <a href="https://peoplesdaily.pdnews.cn/trending/er/30050524191"
+             target="_blank" class="story-card video-card shortform-card">
+            <div class="story-media">
+              <img src="assets/images/v_s3.jpg" class="poster" alt="Seoul Robot AI Museum">
+              <video muted loop playsinline>
+                <source src="assets/videos/v_s1.mp4" type="video/mp4">
+              </video>
+              <span class="shortform-play" aria-hidden="true">▶</span>
+            </div>
+            <div class="story-label">Research &amp; Production</div>
+            <h3>Seoul Robot &amp; AI Museum</h3>
+            <p>Showcasing the future of technology and China-South Korea collaboration.</p>
+            <span class="story-time">Short-form Video</span>
+          </a>
 
-        <a href="https://peoplesdaily.pdnews.cn/trending/er/30049600058" target="_blank" class="story-card video-card">
-          <div class="story-media">
-            <img src="assets/images/v_s2.jpg" class="poster" alt="Tianjin Vibes">
-            <video muted loop playsinline><source src="assets/videos/v_s3.mp4" type="video/mp4"></video>
-          </div>
-          <div class="story-label">Research & Production</div>
-          <h3>Tianjin Vibes</h3>
-          <p>SCO Summit special exploring street food, coastal culture and city atmosphere. </p>
-          <span class="story-time">Short-form Video</span>
-        </a>
+          <a href="https://peoplesdaily.pdnews.cn/trending/er/30050175051"
+             target="_blank" class="story-card video-card shortform-card">
+            <div class="story-media">
+              <img src="assets/images/v_s1.jpg" class="poster" alt="V-Day Parade">
+              <video muted loop playsinline>
+                <source src="assets/videos/v_s2.mp4" type="video/mp4">
+              </video>
+              <span class="shortform-play" aria-hidden="true">▶</span>
+            </div>
+            <div class="story-label">Research &amp; Production</div>
+            <h3>V-Day Parade</h3>
+            <p>Analyzing international reception of China’s 80th anniversary military parade.</p>
+            <span class="story-time">Short-form Video</span>
+          </a>
+
+          <a href="https://peoplesdaily.pdnews.cn/trending/er/30049600058"
+             target="_blank" class="story-card video-card shortform-card">
+            <div class="story-media">
+              <img src="assets/images/v_s2.jpg" class="poster" alt="Tianjin Vibes">
+              <video muted loop playsinline>
+                <source src="assets/videos/v_s3.mp4" type="video/mp4">
+              </video>
+              <span class="shortform-play" aria-hidden="true">▶</span>
+            </div>
+            <div class="story-label">Research &amp; Production</div>
+            <h3>Tianjin Vibes</h3>
+            <p>SCO Summit special exploring street food, coastal culture and city atmosphere.</p>
+            <span class="story-time">Short-form Video</span>
+          </a>
+        </div>
       </div>
 
       <h3 class="subhead">Podcast</h3>
       <div class="story-grid single">
-        <a href="https://podcasts.apple.com/au/podcast/uncurated/id1588841724?i=1000677860463" target="_blank" class="story-card">
-          <div class="story-media"><img src="assets/images/podcast-cover.jpg" alt="UNCURATED podcast cover"></div>
+        <a href="https://podcasts.apple.com/au/podcast/uncurated/id1588841724?i=1000677860463"
+           target="_blank" class="story-card">
+          <div class="story-media">
+            <img src="assets/images/podcast-cover.jpg" alt="UNCURATED podcast cover">
+          </div>
           <div class="story-label">Podcast · Co-Producer</div>
           <h3>UNCURATED</h3>
           <p>Dive into the history of International House and one of its most cherished traditions: the Great Trike Race.</p>
@@ -497,32 +626,40 @@
       </div>
 
       <div class="story-grid article-grid">
-        <a href="https://peoplesdaily.pdnews.cn/china/er/30051228754" target="_blank" class="story-card">
-          <div class="story-media"><img src="assets/images/art1.jpg" alt="China Up Close article"></div>
+        <a href="https://peoplesdaily.pdnews.cn/china/er/30051228754"
+           target="_blank" class="story-card">
+          <div class="story-media">
+            <img src="assets/images/art1.jpg" alt="China Up Close article">
+          </div>
           <div class="story-label">People's Daily</div>
           <h3>China Up Close | How young Chinese are tailoring the inbound tourist experience</h3>
           <p>How younger generations use cultural insight and digital tools to reshape travel experiences.</p>
           <span class="story-time">Digital Reporting</span>
         </a>
 
-        <a href="https://www.thecitizen.org.au/articles/navigating-the-challenges-and-rewards-of-life-studying-abroad" target="_blank" class="story-card">
-          <div class="story-media"><img src="assets/images/art3.jpg" alt="The Citizen article"></div>
+        <a href="https://www.thecitizen.org.au/articles/navigating-the-challenges-and-rewards-of-life-studying-abroad"
+           target="_blank" class="story-card">
+          <div class="story-media">
+            <img src="assets/images/art3.jpg" alt="The Citizen article">
+          </div>
           <div class="story-label">The Citizen</div>
           <h3>Navigating the challenges and rewards of life studying abroad</h3>
-          <p>A deep dive into the emotional and academic journey of international students. </p>
+          <p>A deep dive into the emotional and academic journey of international students.</p>
           <span class="story-time">Feature</span>
         </a>
 
-        <a href="https://lareinawu.substack.com/p/an-unexpected-reply" target="_blank" class="story-card">
-          <div class="story-media"><img src="assets/images/art2.jpg" alt="Substack article"></div>
+        <a href="https://lareinawu.substack.com/p/an-unexpected-reply"
+           target="_blank" class="story-card">
+          <div class="story-media">
+            <img src="assets/images/art2.jpg" alt="Substack article">
+          </div>
           <div class="story-label">Substack</div>
           <h3>An Unexpected Reply</h3>
-          <p>A reflective narrative about human connection, correspondence and unexpected digital interaction. </p>
+          <p>A reflective narrative about human connection, correspondence and unexpected digital interaction.</p>
           <span class="story-time">Essay</span>
         </a>
       </div>
     </section>
-
 
     <section id="social">
       <div class="section-head">
@@ -531,7 +668,8 @@
       </div>
 
       <div class="story-grid">
-        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7338532144450781184/" target="_blank" class="social-card">
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7338532144450781184/"
+           target="_blank" class="social-card">
           <div>
             <span>LinkedIn Post</span>
             <h3>German companies remain convinced of the long-term value of investing in China.</h3>
@@ -539,7 +677,8 @@
           <p>View post →</p>
         </a>
 
-        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7338420991624171520/" target="_blank" class="social-card">
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7338420991624171520/"
+           target="_blank" class="social-card">
           <div>
             <span>LinkedIn Post</span>
             <h3>China's rapid growth in artificial intelligence (AI) and cross-border e-commerce will shape the country's future development path in international trade and boost the growth of global trade.</h3>
@@ -547,7 +686,8 @@
           <p>View post →</p>
         </a>
 
-        <a href="https://www.linkedin.com/posts/lareinawu111_ldcs-lldcs-sids-ugcPost-7455107958990090241-VoN8/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEZ9h7QB4cSmYbBN6SQHZ_K4oDX3nOnyTp4" target="_blank" class="social-card">
+        <a href="https://www.linkedin.com/posts/lareinawu111_ldcs-lldcs-sids-ugcPost-7455107958990090241-VoN8/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEZ9h7QB4cSmYbBN6SQHZ_K4oDX3nOnyTp4"
+           target="_blank" class="social-card">
           <div>
             <span>LinkedIn Post</span>
             <h3>LDCs, LLDCs and SIDS communications post</h3>
@@ -562,6 +702,7 @@
         <h2>Graphic Design</h2>
         <p class="section-note">Selected visual communication and social media design work.</p>
       </div>
+
       <div class="visual-grid">
         <img src="assets/images/sm1.jpg" onclick="openLightbox(this)" alt="Graphic design 1">
         <img src="assets/images/sm2.jpg" onclick="openLightbox(this)" alt="Graphic design 2">
@@ -586,7 +727,7 @@
             Lareina Wu is a multimedia journalist and producer with experience across video production, digital reporting, visual storytelling and public communication.
           </p>
           <p>
-            Her work spans video&podcast production, visual communication projects and international communications experience.
+            Her work spans video&amp;podcast production, visual communication projects and international communications experience.
           </p>
           <div class="about-links">
             <a class="pill" href="assets/CV.pdf" target="_blank">View CV</a>
